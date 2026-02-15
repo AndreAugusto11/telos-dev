@@ -1,0 +1,18 @@
+# Build directories
+build/
+*.wasm
+*.abi
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Don't ignore devcontainer config
+!.devcontainer/
+```
+
+wallet_password.txt
+nodeos.log
