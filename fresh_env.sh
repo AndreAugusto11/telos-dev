@@ -1,5 +1,27 @@
 #!/bin/bash
 
+# Before anything, make sure you have all the necessary tools installed:
+# - nodeos (EOSIO node)
+# - cleos (EOSIO command line tool)
+# - cdt-cpp (EOSIO Contract Development Toolkit)
+
+echo "Verifying prerequisites..."
+if ! command -v nodeos &> /dev/null; then
+  echo "❌ nodeos not found. Please install EOSIO and ensure nodeos is in your PATH."
+  exit 1
+fi
+
+if ! command -v cleos &> /dev/null; then
+  echo "❌ cleos not found. Please install EOSIO and ensure cleos is in your PATH."
+  exit 1
+fi
+
+if ! command -v cdt-cpp &> /dev/null; then
+  echo "❌ cdt-cpp not found. Please install EOSIO CDT and ensure cdt-cpp is in your PATH."
+  exit 1
+fi
+
+
 echo "🧹 Cleaning old environment..."
 pkill -9 nodeos
 sleep 2
