@@ -1,0 +1,1 @@
+Sourced from [AntelopeIO reference contracts](https://github.com/AntelopeIO/reference-contracts/tree/c526479a48370981a1e9f0ac6b3bb0e4f737afa2/contracts/eosio.token)

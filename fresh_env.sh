@@ -97,8 +97,12 @@ cdt-cpp -abigen -o minimal.wasm minimal.cpp
 cleos set contract minimal . minimal.wasm minimal.abi -p minimal@active
 echo "✅ Contract deployed to account 'minimal'!"
 
-echo "🎉 All contracts deployed! You can now interact with them using cleos."
+echo "🎉 All contracts deployed! You can now interact with them using cleos."@active
 
-# Test the contract (this still has the access violation issue)
+# This should fail because 'hello' contract requires auth from the user, and 'bob' is not the account executing the action
+cleos push action hello hi '["bob"]' -p hello@active
 cleos push action hello hi '["alice"]' -p hello@active
-cleos push action minimal test '["alice"]' -p minimal@active
+
+# Test the contract
+cleos push action hello hi '["hello"]' -p hello@active
+cleos push action minimal test '["alice"]' -p minimal

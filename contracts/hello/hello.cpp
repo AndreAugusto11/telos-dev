@@ -2,11 +2,13 @@
 
 using namespace eosio;
 
-CONTRACT hello : public contract {
+class [[eosio::contract]] hello : public contract {
   public:
       using contract::contract;
 
-      ACTION hi( name user ) {
-         print( "Hello, ", name{user});
+      [[eosio::action]]
+      void hi( name user ) {
+         require_auth( user );
+         print( "Hello, ", user);
       }
 };
