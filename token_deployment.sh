@@ -3,13 +3,12 @@
 ./fresh_env.sh
 
 echo "Navigate to your contracts directory"
-cd ./contracts
+cd ./contracts/eosio.token
 
 echo "Create Account for Contract"
 cleos create account eosio eosio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
 echo "Compile the Token Contract"
-cd ./eosio.token
 eosio-cpp -I include -o eosio.token.wasm src/eosio.token.cpp --abigen
 
 echo "Deploy the Token Contract"
